@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6F17C0A7-33F9-393A-9BD2-90F972D03A19}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/SourceLibraries/GLFW/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/Projects/School/VulkanRaytraceC++/ExternalLibraries/SourceLibraries/GLFW -BG:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLFW --check-stamp-file G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLFW/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.31\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\WriteBasicConfigVersionFile.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\3.31.2\CMakeCCompiler.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\3.31.2\CMakeRCCompiler.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\3.31.2\CMakeSystem.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\CMake\cmake_uninstall.cmake.in;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\CMake\glfw3Config.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/SourceLibraries/GLFW/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/Projects/School/VulkanRaytraceC++/ExternalLibraries/SourceLibraries/GLFW -BG:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLFW --check-stamp-file G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLFW/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.31\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\WriteBasicConfigVersionFile.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\3.31.2\CMakeCCompiler.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\3.31.2\CMakeRCCompiler.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\3.31.2\CMakeSystem.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\CMake\cmake_uninstall.cmake.in;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\CMake\glfw3Config.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/SourceLibraries/GLFW/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/Projects/School/VulkanRaytraceC++/ExternalLibraries/SourceLibraries/GLFW -BG:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLFW --check-stamp-file G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLFW/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.31\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\WriteBasicConfigVersionFile.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\3.31.2\CMakeCCompiler.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\3.31.2\CMakeRCCompiler.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\3.31.2\CMakeSystem.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\CMake\cmake_uninstall.cmake.in;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\CMake\glfw3Config.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/SourceLibraries/GLFW/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/Projects/School/VulkanRaytraceC++/ExternalLibraries/SourceLibraries/GLFW -BG:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLFW --check-stamp-file G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLFW/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.31\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\WriteBasicConfigVersionFile.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\3.31.2\CMakeCCompiler.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\3.31.2\CMakeRCCompiler.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\3.31.2\CMakeSystem.cmake;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\CMake\cmake_uninstall.cmake.in;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\CMake\glfw3Config.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\ZERO_CHECK.vcxproj">
+      <Project>{E631B937-A59A-39AD-BE13-5DF2BCCFDB3C}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\allocator.vcxproj">
+      <Project>{89BF7A8B-8854-3E19-B1C2-4FB2FFFB224D}</Project>
+      <Name>allocator</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\examples\boing.vcxproj">
+      <Project>{A88D8C99-C348-3F2D-893D-B21C3EB06E74}</Project>
+      <Name>boing</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\clipboard.vcxproj">
+      <Project>{B505F7B5-49E8-3FAA-BF47-AB4DDF7B0496}</Project>
+      <Name>clipboard</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\cursor.vcxproj">
+      <Project>{9BCCC796-BDDA-3154-8B04-3104FFE3EEBF}</Project>
+      <Name>cursor</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\empty.vcxproj">
+      <Project>{96F131DC-B38A-3A6A-B039-43E20A962234}</Project>
+      <Name>empty</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\events.vcxproj">
+      <Project>{475294E2-EDEA-33C4-9F3F-D58FC9CC2C54}</Project>
+      <Name>events</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\gamma.vcxproj">
+      <Project>{8B34DC3F-9B97-3F80-804F-CFDF083D0914}</Project>
+      <Name>gamma</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\examples\gears.vcxproj">
+      <Project>{094EDCD5-4009-3D6A-9D71-5BD7F34013E7}</Project>
+      <Name>gears</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\src\glfw.vcxproj">
+      <Project>{DB089834-9286-3062-ADD9-ADD15725170D}</Project>
+      <Name>glfw</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\glfwinfo.vcxproj">
+      <Project>{E3C05E01-E565-30E2-99A3-18BC7D48F394}</Project>
+      <Name>glfwinfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\examples\heightmap.vcxproj">
+      <Project>{36E87835-0CFE-322F-8DD5-348C10C1F015}</Project>
+      <Name>heightmap</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\icon.vcxproj">
+      <Project>{2C8CBE48-94E7-386D-8E62-B4D0C2F9449E}</Project>
+      <Name>icon</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\iconify.vcxproj">
+      <Project>{40915615-8897-3833-AFE7-4A276E0CC6A9}</Project>
+      <Name>iconify</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\inputlag.vcxproj">
+      <Project>{68E946FB-BE0A-3859-AFC3-3893D4E2E408}</Project>
+      <Name>inputlag</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\joysticks.vcxproj">
+      <Project>{C6076136-3385-3EE7-98E6-FEFB49F47597}</Project>
+      <Name>joysticks</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\monitors.vcxproj">
+      <Project>{1DC256CB-012E-3209-B33B-697F60335D2D}</Project>
+      <Name>monitors</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\msaa.vcxproj">
+      <Project>{11C482C1-9BF8-3673-93D9-2FBA3D1C5BF9}</Project>
+      <Name>msaa</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\examples\offscreen.vcxproj">
+      <Project>{76B656F2-A602-3AF7-84F6-84B5DAD8C2FD}</Project>
+      <Name>offscreen</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\examples\particles.vcxproj">
+      <Project>{0A83E04E-6329-3E77-8E3C-3664D49E8362}</Project>
+      <Name>particles</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\reopen.vcxproj">
+      <Project>{A4892123-ED1B-3044-9E88-BEB11F755536}</Project>
+      <Name>reopen</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\examples\sharing.vcxproj">
+      <Project>{81CA9D67-5F80-38B6-ABC0-EFB6D465FD38}</Project>
+      <Name>sharing</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\examples\splitview.vcxproj">
+      <Project>{9FB786F5-A978-3AA0-ACD1-C597E72D9C8F}</Project>
+      <Name>splitview</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\tearing.vcxproj">
+      <Project>{BC346D64-0400-3924-BF51-05F863D10CBC}</Project>
+      <Name>tearing</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\threads.vcxproj">
+      <Project>{D64BF82C-BF77-30D2-BBCF-8B57129E830F}</Project>
+      <Name>threads</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\timeout.vcxproj">
+      <Project>{054248A4-72FB-389A-9FF7-53F420410F93}</Project>
+      <Name>timeout</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\title.vcxproj">
+      <Project>{16D0F6E8-64B7-3409-8A87-A52981AE8F42}</Project>
+      <Name>title</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\examples\triangle-opengl.vcxproj">
+      <Project>{ADBC41E0-20E5-3D1C-B128-DD1F17A91ABB}</Project>
+      <Name>triangle-opengl</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\examples\triangle-opengles.vcxproj">
+      <Project>{643DD1C5-3BEC-3A47-9206-2EBBC867AB3D}</Project>
+      <Name>triangle-opengles</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\triangle-vulkan.vcxproj">
+      <Project>{535A8B8F-D787-3A10-BC58-8E65DF8350EB}</Project>
+      <Name>triangle-vulkan</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\examples\wave.vcxproj">
+      <Project>{01A0A32D-2BE8-3F5B-AE12-ADBA956C2B8F}</Project>
+      <Name>wave</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\tests\window.vcxproj">
+      <Project>{E6F96C37-7F24-33D2-B17C-EEDB351DD9F9}</Project>
+      <Name>window</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\examples\windows.vcxproj">
+      <Project>{01A54B23-8E6D-3213-8E18-1F1CD500A0B1}</Project>
+      <Name>windows</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

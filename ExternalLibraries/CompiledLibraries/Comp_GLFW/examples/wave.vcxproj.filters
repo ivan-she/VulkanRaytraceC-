@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\examples\wave.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\deps\glad\gl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\examples\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\examples\glfw.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{3674B8E6-E2D2-3A4F-9307-EAD5080CF31E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{653AFA31-0716-3009-9866-A2B4B3C34E60}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

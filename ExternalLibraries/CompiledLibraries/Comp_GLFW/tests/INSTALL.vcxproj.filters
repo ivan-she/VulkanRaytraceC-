@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\fe7ef350fc7a63608360558250178e2b\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{98C5EF2D-3598-3650-A667-F24049A43573}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

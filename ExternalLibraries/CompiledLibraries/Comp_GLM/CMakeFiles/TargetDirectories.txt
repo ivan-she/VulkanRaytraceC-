@@ -1,0 +1,8 @@
+G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLM/CMakeFiles/uninstall.dir
+G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLM/CMakeFiles/PACKAGE.dir
+G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLM/CMakeFiles/INSTALL.dir
+G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLM/CMakeFiles/ALL_BUILD.dir
+G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLM/CMakeFiles/ZERO_CHECK.dir
+G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLM/glm/CMakeFiles/glm.dir
+G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLM/glm/CMakeFiles/PACKAGE.dir
+G:/Projects/School/VulkanRaytraceC++/ExternalLibraries/CompiledLibraries/Comp_GLM/glm/CMakeFiles/INSTALL.dir

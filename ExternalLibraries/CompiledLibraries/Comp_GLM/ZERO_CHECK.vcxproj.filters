@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLM\CMakeFiles\cc32a6a39231d3391390e9b31c52bcbb\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1C0AEE99-C2FB-3790-A9B3-36FD9C611AC9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

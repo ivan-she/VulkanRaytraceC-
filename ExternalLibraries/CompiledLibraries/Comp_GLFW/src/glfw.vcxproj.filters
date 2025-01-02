@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\context.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\init.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\input.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\monitor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\platform.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\vulkan.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\window.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\egl_context.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\osmesa_context.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\null_init.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\null_monitor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\null_window.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\null_joystick.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\win32_module.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\win32_time.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\win32_thread.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\win32_init.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\win32_joystick.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\win32_monitor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\win32_window.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\wgl_context.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\include\GLFW\glfw3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\include\GLFW\glfw3native.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\mappings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\null_platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\null_joystick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\win32_time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\win32_thread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\win32_platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\win32_joystick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{3674B8E6-E2D2-3A4F-9307-EAD5080CF31E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{653AFA31-0716-3009-9866-A2B4B3C34E60}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

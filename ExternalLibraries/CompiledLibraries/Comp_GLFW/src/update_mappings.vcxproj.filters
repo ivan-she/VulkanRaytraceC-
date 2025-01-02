@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\CMakeFiles\4c8311482a481d2e6325ac6afe6e9c30\update_mappings.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\src\mappings.h.in">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\CMake\GenerateMappings.cmake" />
+    <None Include="G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\CompiledLibraries\Comp_GLFW\src\CMakeFiles\update_mappings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{98C5EF2D-3598-3650-A667-F24049A43573}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{3674B8E6-E2D2-3A4F-9307-EAD5080CF31E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
