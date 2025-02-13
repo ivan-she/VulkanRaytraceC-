@@ -140,6 +140,10 @@
     <ClCompile Include="rt_window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="compile.bat" />
+    <None Include="compiler.sh" />
+    <None Include="simp_shader.frag" />
+    <None Include="simp_shader.vert" />
     <None Include="triangle.frag" />
     <None Include="triangle.vert" />
   </ItemGroup>
