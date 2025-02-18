@@ -144,7 +144,9 @@
     <None Include="compile.bat" />
     <None Include="compiler.sh" />
     <None Include="simp_shader.frag" />
+    <None Include="simp_shader.frag.spv" />
     <None Include="simp_shader.vert" />
+    <None Include="simp_shader.vert.spv" />
     <None Include="triangle.frag" />
     <None Include="triangle.vert" />
   </ItemGroup>

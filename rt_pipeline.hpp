@@ -5,9 +5,9 @@
 
 namespace rt 
 {
-	class rtPipeline {
+	class RtPipeline {
 	public:
-		rtPipeline(const std::string& vertFilepath, const std::string& fragFilepath);
+		RtPipeline(const std::string& vertFilepath, const std::string& fragFilepath);
 
 	private:
 		static std::vector<char> readFile(const std::string& filepath);

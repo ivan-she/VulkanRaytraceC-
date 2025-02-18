@@ -48,6 +48,12 @@
     <None Include="compile.bat">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="simp_shader.frag.spv">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="simp_shader.vert.spv">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="rt_window.hpp">
