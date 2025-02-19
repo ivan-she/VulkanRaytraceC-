@@ -1,8 +1,8 @@
 #pragma once
 
 #include "rt_window.hpp"
-#include "vulkan/vulkan.hpp"
-#include "vulkan/vulkan.h"
+//#include "vulkan/vulkan.hpp"
+//#include "vulkan/vulkan.h"
 
 // std lib headers
 #include <string>
@@ -31,7 +31,7 @@ class RtDevice {
 #else
   const bool enableValidationLayers = true;
 #endif
-
+  
   RtDevice(RtWindow &window);
   ~RtDevice();
 

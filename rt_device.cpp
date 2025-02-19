@@ -47,7 +47,7 @@ void DestroyDebugUtilsMessengerEXT(
 }
 
 // class member functions
-RtDevice::RtDevice(RtWindow &window) : window{window} {
+RtDevice::RtDevice(Rtwindow &window) : window{window} {
   createInstance();
   setupDebugMessenger();
   createSurface();
