@@ -6,7 +6,7 @@
 #include <set>
 #include <unordered_set>
 
-namespace lve {
+namespace rt {
 
 // local callback functions
 static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
@@ -47,7 +47,7 @@ void DestroyDebugUtilsMessengerEXT(
 }
 
 // class member functions
-RtDevice::RtDevice(Rtwindow &window) : window{window} {
+RtDevice::RtDevice(RtWindow &window) : window{window} {
   createInstance();
   setupDebugMessenger();
   createSurface();
@@ -531,4 +531,4 @@ void RtDevice::createImageWithInfo(
   }
 }
 
-}  // namespace lve
+}  // namespace rt

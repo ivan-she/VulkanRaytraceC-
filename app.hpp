@@ -2,6 +2,8 @@
 
 #include "rt_window.hpp"
 #include "rt_pipeline.hpp"
+#include "rt_device.hpp"
+
 
 namespace rt {
 	class App {
@@ -13,7 +15,8 @@ namespace rt {
 
 	private:
 		RtWindow rtWindow{ WIDTH,HEIGHT,"Hello ray trace!" };
-		RtPipeline rtPipeline{ "simp_shader.vert.spv", "simp_shader.frag.spv" };
+		RtDevice rtDevice{rtWindow};
+		RtPipeline rtPipeline{ rtDevice,"simp_shader.vert.spv", "simp_shader.frag.spv", RtPipeline::defaultPipelineConfigInfo (WIDTH,HEIGHT)};
 
 	};
 }

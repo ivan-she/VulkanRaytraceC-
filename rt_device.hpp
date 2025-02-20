@@ -1,14 +1,14 @@
 #pragma once
 
-#include "rt_window.hpp"
 //#include "vulkan/vulkan.hpp"
 //#include "vulkan/vulkan.h"
 
 // std lib headers
 #include <string>
 #include <vector>
+#include "rt_window.hpp"
 
-namespace lve {
+namespace rt {
 
 struct SwapChainSupportDetails {
   VkSurfaceCapabilitiesKHR capabilities;
@@ -107,4 +107,4 @@ class RtDevice {
   const std::vector<const char *> deviceExtensions = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};
 };
 
-}  // namespace lve
+}  // namespace rt

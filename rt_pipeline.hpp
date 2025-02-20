@@ -1,18 +1,47 @@
 #pragma
 
+#include "rt_device.hpp"
+
 #include <string>
 #include <vector>
 
 namespace rt 
 {
+
+	struct PipelineConfigInfo
+	{
+
+	};
+
 	class RtPipeline {
 	public:
-		RtPipeline(const std::string& vertFilepath, const std::string& fragFilepath);
+		RtPipeline(
+			RtDevice &device,
+			const std::string& vertFilepath, 
+			const std::string& fragFilepath, 
+			const PipelineConfigInfo& configInfo);
+		~RtPipeline() {}
+
+		RtPipeline(const RtPipeline&) = delete;
+		void operator=(const RtPipeline&) = delete;
+
+		static PipelineConfigInfo defaultPipelineConfigInfo(uint32_t width, uint32_t height);
+
 
 	private:
 		static std::vector<char> readFile(const std::string& filepath);
 
-		void createGraphicsPipeline(const std::string& vertFilepath, const std::string& fragFilepath);
+		void createGraphicsPipeline(
+			const std::string& vertFilepath,
+			const std::string& fragFilepath,
+			const PipelineConfigInfo& configInfo);
+
+		void createShaderModule(const std::vector<char>& code, VkShaderModule* shaderModule);
+
+		RtDevice& rtDevice;
+		VkPipeline graphicsPipeline;
+		VkShaderModule vertShaderModule;
+		VkShaderModule fragShadereModule;
 
 	};
 }
