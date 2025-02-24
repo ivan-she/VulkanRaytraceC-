@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="app.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="rt_swap_chain.cpp" />
     <ClCompile Include="rt_device.cpp" />
     <ClCompile Include="rt_pipeline.cpp" />
     <ClCompile Include="rt_window.cpp" />
@@ -153,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app.hpp" />
+    <ClInclude Include="rt_swap_chain.hpp" />
     <ClInclude Include="rt_device.hpp" />
     <ClInclude Include="rt_pipeline.hpp" />
     <ClInclude Include="rt_window.hpp" />

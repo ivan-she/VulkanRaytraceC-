@@ -3,7 +3,10 @@
 #include "rt_window.hpp"
 #include "rt_pipeline.hpp"
 #include "rt_device.hpp"
+#include "rt_swap_chain.hpp"
 
+#include <memory>
+#include <vector>
 
 namespace rt {
 	class App {
@@ -11,12 +14,27 @@ namespace rt {
 		static constexpr int WIDTH = 800;
 		static constexpr int HEIGHT = 600;
 
+		App();
+		~App();
+
+		App(const App&) = delete;
+		App& operator=(const App&) = delete;
+
 		void run();
 
 	private:
+		void createPipelineLayout();
+		void createPipeline();
+		void createCommadBuffers();
+		void drawframe();
+
 		RtWindow rtWindow{ WIDTH,HEIGHT,"Hello ray trace!" };
 		RtDevice rtDevice{rtWindow};
-		RtPipeline rtPipeline{ rtDevice,"simp_shader.vert.spv", "simp_shader.frag.spv", RtPipeline::defaultPipelineConfigInfo (WIDTH,HEIGHT)};
+		RtSwapChain rtSwapChain{ rtDevice,rtWindow.getExtent() };
+
+		std::unique_ptr<RtPipeline> rtPipeline;
+		VkPipelineLayout pipelineLayout;
+		std::vector<VkCommandBuffer> commandBuffers;
 
 	};
 }
