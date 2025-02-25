@@ -26,7 +26,7 @@ namespace rt {
 		void createPipelineLayout();
 		void createPipeline();
 		void createCommadBuffers();
-		void drawframe();
+		void drawFrame();
 
 		RtWindow rtWindow{ WIDTH,HEIGHT,"Hello ray trace!" };
 		RtDevice rtDevice{rtWindow};
