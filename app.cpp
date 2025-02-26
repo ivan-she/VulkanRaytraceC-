@@ -6,6 +6,7 @@ namespace rt {
 
 	App::App()
 	{
+		loadModels();
 		createPipelineLayout();
 		createPipeline();
 		createCommadBuffers();
@@ -24,6 +25,18 @@ namespace rt {
 		}
 
 		vkDeviceWaitIdle(rtDevice.device());
+	}
+
+
+	void App::loadModels()
+	{
+		std::vector<RtModel::Vertex> vertices{
+			{{0.0f,-0.5f}},
+			{{0.5f,0.5f}},
+			{{-0.5f,0.0f}},
+		};
+
+		rtModel = std::make_unique<RtModel>(rtDevice, vertices);
 	}
 
 	void App::createPipelineLayout()
@@ -97,7 +110,9 @@ namespace rt {
 
 			rtPipeline->bind(commandBuffers[i]);
 
-			vkCmdDraw(commandBuffers[i], 3, 1, 0, 0);
+			rtModel->bind(commandBuffers[i]);
+			rtModel->draw(commandBuffers[i]);
+
 
 			vkCmdEndRenderPass(commandBuffers[i]);
 			if (vkEndCommandBuffer(commandBuffers[i]) != VK_SUCCESS)

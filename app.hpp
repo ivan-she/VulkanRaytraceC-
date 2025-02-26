@@ -4,6 +4,7 @@
 #include "rt_pipeline.hpp"
 #include "rt_device.hpp"
 #include "rt_swap_chain.hpp"
+#include "rt_model.hpp"
 
 #include <memory>
 #include <vector>
@@ -23,6 +24,7 @@ namespace rt {
 		void run();
 
 	private:
+		void loadModels();
 		void createPipelineLayout();
 		void createPipeline();
 		void createCommadBuffers();
@@ -35,6 +37,7 @@ namespace rt {
 		std::unique_ptr<RtPipeline> rtPipeline;
 		VkPipelineLayout pipelineLayout;
 		std::vector<VkCommandBuffer> commandBuffers;
+		std::unique_ptr<RtModel> rtModel;
 
 	};
 }
