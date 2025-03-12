@@ -28,6 +28,7 @@ namespace rt {
 		void createPipelineLayout();
 		void createPipeline();
 		void createCommadBuffers();
+		void freeCommandBuffers();
 		void drawFrame();
 		void recreateSwapChain();
 		void recordCommandBuffer(int imageIndex);

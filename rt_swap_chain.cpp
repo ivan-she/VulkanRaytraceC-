@@ -13,12 +13,24 @@ namespace rt {
 
 RtSwapChain::RtSwapChain(RtDevice &deviceRef, VkExtent2D extent)
     : device{deviceRef}, windowExtent{extent} {
-  createSwapChain();
-  createImageViews();
-  createRenderPass();
-  createDepthResources();
-  createFramebuffers();
-  createSyncObjects();
+    init();
+}
+RtSwapChain::RtSwapChain(RtDevice& deviceRef, VkExtent2D extent, std::shared_ptr<RtSwapChain> previous)
+    : device{ deviceRef }, windowExtent{ extent }, oldSwapChain{previous} {
+    init();
+
+    // Clean Old swapchain
+    oldSwapChain = nullptr;
+}
+
+void RtSwapChain::init()
+{
+    createSwapChain();
+    createImageViews();
+    createRenderPass();
+    createDepthResources();
+    createFramebuffers();
+    createSyncObjects();
 }
 
 RtSwapChain::~RtSwapChain() {
@@ -162,7 +174,7 @@ void RtSwapChain::createSwapChain() {
   createInfo.presentMode = presentMode;
   createInfo.clipped = VK_TRUE;
 
-  createInfo.oldSwapchain = VK_NULL_HANDLE;
+  createInfo.oldSwapchain = oldSwapChain==nullptr ? VK_NULL_HANDLE : oldSwapChain->swapChain;
 
   if (vkCreateSwapchainKHR(device.device(), &createInfo, nullptr, &swapChain) != VK_SUCCESS) {
     throw std::runtime_error("failed to create swap chain!");

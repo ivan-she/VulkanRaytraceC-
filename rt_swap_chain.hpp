@@ -8,6 +8,7 @@
 // std lib headers
 #include <string>
 #include <vector>
+#include <memory>
 
 namespace rt {
 
@@ -16,6 +17,7 @@ class RtSwapChain {
   static constexpr int MAX_FRAMES_IN_FLIGHT = 2;
 
   RtSwapChain(RtDevice &deviceRef, VkExtent2D windowExtent);
+  RtSwapChain(RtDevice& deviceRef, VkExtent2D windowExtent,std::shared_ptr<RtSwapChain> previous);
   ~RtSwapChain();
 
   RtSwapChain(const RtSwapChain &) = delete;
@@ -39,6 +41,7 @@ class RtSwapChain {
   VkResult submitCommandBuffers(const VkCommandBuffer *buffers, uint32_t *imageIndex);
 
  private:
+  void init();
   void createSwapChain();
   void createImageViews();
   void createDepthResources();
@@ -69,6 +72,7 @@ class RtSwapChain {
   VkExtent2D windowExtent;
 
   VkSwapchainKHR swapChain;
+  std::shared_ptr<RtSwapChain> oldSwapChain;
 
   std::vector<VkSemaphore> imageAvailableSemaphores;
   std::vector<VkSemaphore> renderFinishedSemaphores;
