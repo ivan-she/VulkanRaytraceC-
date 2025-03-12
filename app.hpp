@@ -29,10 +29,12 @@ namespace rt {
 		void createPipeline();
 		void createCommadBuffers();
 		void drawFrame();
+		void recreateSwapChain();
+		void recordCommandBuffer(int imageIndex);
 
 		RtWindow rtWindow{ WIDTH,HEIGHT,"Hello ray trace!" };
 		RtDevice rtDevice{rtWindow};
-		RtSwapChain rtSwapChain{ rtDevice,rtWindow.getExtent() };
+		std::unique_ptr<RtSwapChain> rtSwapChain;
 
 		std::unique_ptr<RtPipeline> rtPipeline;
 		VkPipelineLayout pipelineLayout;

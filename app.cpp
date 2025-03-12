@@ -31,9 +31,9 @@ namespace rt {
 	void App::loadModels()
 	{
 		std::vector<RtModel::Vertex> vertices{
-			{{0.0f,-0.5f}},
-			{{0.5f,0.5f}},
-			{{-0.5f,0.0f}},
+			{{0.0f,-0.5f}, { 1.0f,0.0f,0.0f }},
+			{{0.5f,0.5f}, { 0.0f,0.0f,1.0f }},
+			{{-0.5f,0.5f}, { 0.0f,1.0f,0.0f }}
 		};
 
 		rtModel = std::make_unique<RtModel>(rtDevice, vertices);
@@ -56,9 +56,9 @@ namespace rt {
 
 	void App::createPipeline() 
 	{
-		auto pipelineConfig = RtPipeline::defaultPipelineConfigInfo(rtSwapChain.width(), rtSwapChain.height());
+		auto pipelineConfig = RtPipeline::defaultPipelineConfigInfo(rtSwapChain->width(), rtSwapChain->height());
 
-		pipelineConfig.renderPass = rtSwapChain.getRenderPass();
+		pipelineConfig.renderPass = rtSwapChain->getRenderPass();
 		pipelineConfig.pipelineLayout = pipelineLayout;
 		rtPipeline = std::make_unique<RtPipeline>(
 			rtDevice,
@@ -69,7 +69,7 @@ namespace rt {
 	}
 	void App::createCommadBuffers() 
 	{
-		commandBuffers.resize(rtSwapChain.imageCount());
+		commandBuffers.resize(rtSwapChain->imageCount());
 		VkCommandBufferAllocateInfo allocInfo{};
 		allocInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
 		allocInfo.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
@@ -93,11 +93,11 @@ namespace rt {
 
 			VkRenderPassBeginInfo renderPassInfo{};
 			renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
-			renderPassInfo.renderPass = rtSwapChain.getRenderPass();
-			renderPassInfo.framebuffer = rtSwapChain.getFrameBuffer(i);
+			renderPassInfo.renderPass = rtSwapChain->getRenderPass();
+			renderPassInfo.framebuffer = rtSwapChain->getFrameBuffer(i);
 
 			renderPassInfo.renderArea.offset = { 0,0 };
-			renderPassInfo.renderArea.extent = rtSwapChain.getSwapChainExtent();
+			renderPassInfo.renderArea.extent = rtSwapChain->getSwapChainExtent();
 
 			std::array<VkClearValue, 2> clearValues{};
 			clearValues[0].color = { 0.1f,0.1f,0.1f,1.0f };
@@ -127,14 +127,14 @@ namespace rt {
 	void App::drawFrame() 
 	{
 		uint32_t imageIndex;
-		auto result = rtSwapChain.acquireNextImage(&imageIndex);
+		auto result = rtSwapChain->acquireNextImage(&imageIndex);
 
 		if (result != VK_SUCCESS && result != VK_SUBOPTIMAL_KHR) 
 		{
 			throw std::runtime_error("Failed to acquire swapchain image");
 		}
 
-		result = rtSwapChain.submitCommandBuffers(&commandBuffers[imageIndex], &imageIndex);
+		result = rtSwapChain->submitCommandBuffers(&commandBuffers[imageIndex], &imageIndex);
 
 		if (result != VK_SUCCESS)
 		{

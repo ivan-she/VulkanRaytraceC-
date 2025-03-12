@@ -33,7 +33,7 @@ namespace rt
 		~RtPipeline();
 
 		RtPipeline(const RtPipeline&) = delete;
-		void operator=(const RtPipeline&) = delete;
+		RtPipeline& operator=(const RtPipeline&) = delete;
 
 
 		void bind(VkCommandBuffer commandBuffer);
