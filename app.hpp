@@ -3,8 +3,9 @@
 #include "rt_window.hpp"
 #include "rt_pipeline.hpp"
 #include "rt_device.hpp"
+#include "game_object.hpp"
 #include "rt_swap_chain.hpp"
-#include "rt_model.hpp"
+
 
 #include <memory>
 #include <vector>
@@ -24,7 +25,7 @@ namespace rt {
 		void run();
 
 	private:
-		void loadModels();
+		void loadObjects();
 		void createPipelineLayout();
 		void createPipeline();
 		void createCommadBuffers();
@@ -32,6 +33,7 @@ namespace rt {
 		void drawFrame();
 		void recreateSwapChain();
 		void recordCommandBuffer(int imageIndex);
+		void renderObjects(VkCommandBuffer commandBuffer);
 
 		RtWindow rtWindow{ WIDTH,HEIGHT,"Hello ray trace!" };
 		RtDevice rtDevice{rtWindow};
@@ -40,7 +42,7 @@ namespace rt {
 		std::unique_ptr<RtPipeline> rtPipeline;
 		VkPipelineLayout pipelineLayout;
 		std::vector<VkCommandBuffer> commandBuffers;
-		std::unique_ptr<RtModel> rtModel;
+		std::vector<RtObject> objects;
 
 	};
 }

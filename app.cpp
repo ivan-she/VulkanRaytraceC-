@@ -1,12 +1,25 @@
 #include "app.hpp"
 #include <stdexcept>
 #include <array>
+#define GLM_FORCE_RADIANS
+#define GLM_FORCE_DEPTH_ZERO_TO_ONE
+#include <glm/glm.hpp>
+#include <iostream>
+
+
 namespace rt {
+
+	struct SimplePushConstantData
+	{
+		glm::mat2 transform{ 1.f };
+		glm::vec2 offset;
+		alignas(16) glm::vec3 color;
+	};
 
 
 	App::App()
 	{
-		loadModels();
+		loadObjects();
 		createPipelineLayout();
 		recreateSwapChain();
 		createCommadBuffers();
@@ -28,7 +41,7 @@ namespace rt {
 	}
 
 
-	void App::loadModels()
+	void App::loadObjects()
 	{
 		std::vector<RtModel::Vertex> vertices{
 			{{0.0f,-0.5f}, { 1.0f,0.0f,0.0f }},
@@ -36,17 +49,32 @@ namespace rt {
 			{{-0.5f,0.5f}, { 0.0f,1.0f,0.0f }}
 		};
 
-		rtModel = std::make_unique<RtModel>(rtDevice, vertices);
+		auto rtModel = std::make_shared<RtModel>(rtDevice, vertices);
+
+		auto triangle = RtObject::createObject();
+		triangle.model = rtModel;
+		triangle.color = { 0.1f,0.1f,0.8f };
+		triangle.transform2d.translation.x = 0.2f;
+
+		objects.push_back(std::move(triangle));
+
 	}
 
 	void App::createPipelineLayout()
 	{
+		VkPushConstantRange pushConstantRange{};
+		pushConstantRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
+		pushConstantRange.offset = 0;
+		pushConstantRange.size = sizeof(SimplePushConstantData);
+
+
+
 		VkPipelineLayoutCreateInfo pipelineLayoutInfo{};
 		pipelineLayoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
 		pipelineLayoutInfo.setLayoutCount = 0;
 		pipelineLayoutInfo.pSetLayouts = nullptr;
-		pipelineLayoutInfo.pushConstantRangeCount = 0;
-		pipelineLayoutInfo.pPushConstantRanges = nullptr;
+		pipelineLayoutInfo.pushConstantRangeCount = 1;
+		pipelineLayoutInfo.pPushConstantRanges = &pushConstantRange;
 		if (vkCreatePipelineLayout(rtDevice.device(), &pipelineLayoutInfo, nullptr, &pipelineLayout) != VK_SUCCESS)
 		{
 			throw std::runtime_error("Failed To create pipeline layout!");
@@ -143,7 +171,7 @@ namespace rt {
 		renderPassInfo.renderArea.extent = rtSwapChain->getSwapChainExtent();
 
 		std::array<VkClearValue, 2> clearValues{};
-		clearValues[0].color = { 0.1f,0.1f,0.1f,1.0f };
+		clearValues[0].color = { 0.01f,0.01f,0.01f,1.0f };
 		clearValues[1].depthStencil = { 1.0f, 0 };
 
 		renderPassInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
@@ -162,16 +190,31 @@ namespace rt {
 		vkCmdSetViewport(commandBuffers[imageIndex], 0, 1, &viewport);
 		vkCmdSetScissor(commandBuffers[imageIndex], 0, 1, &scissor);
 	
+		renderObjects(commandBuffers[imageIndex]);
 
-		rtPipeline->bind(commandBuffers[imageIndex]);
-		rtModel->bind(commandBuffers[imageIndex]);
-		rtModel->draw(commandBuffers[imageIndex]);
+
+		
 
 
 		vkCmdEndRenderPass(commandBuffers[imageIndex]);
 		if (vkEndCommandBuffer(commandBuffers[imageIndex]) != VK_SUCCESS)
 		{
 			throw std::runtime_error("Failed to record command buffer!");
+		}
+	}
+
+	void App::renderObjects(VkCommandBuffer commandBuffer)
+	{
+		rtPipeline->bind(commandBuffer);
+		for (auto& obj : objects)
+		{
+			SimplePushConstantData push{};
+			push.offset = obj.transform2d.translation;
+			push.color = obj.color;
+			push.transform = obj.transform2d.mat2();
+			vkCmdPushConstants(commandBuffer, pipelineLayout, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT, 0, sizeof(SimplePushConstantData), &push);
+			obj.model->bind(commandBuffer);
+			obj.model->draw(commandBuffer);
 		}
 	}
 

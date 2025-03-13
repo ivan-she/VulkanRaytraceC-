@@ -83,5 +83,8 @@
     <ClInclude Include="rt_model.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="game_object.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
