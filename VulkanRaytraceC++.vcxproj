@@ -137,7 +137,9 @@
   <ItemGroup>
     <ClCompile Include="app.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="render_system.cpp" />
     <ClCompile Include="rt_model.cpp" />
+    <ClCompile Include="rt_renderer.cpp" />
     <ClCompile Include="rt_swap_chain.cpp" />
     <ClCompile Include="rt_device.cpp" />
     <ClCompile Include="rt_pipeline.cpp" />
@@ -156,7 +158,9 @@
   <ItemGroup>
     <ClInclude Include="app.hpp" />
     <ClInclude Include="game_object.hpp" />
+    <ClInclude Include="render_system.hpp" />
     <ClInclude Include="rt_model.hpp" />
+    <ClInclude Include="rt_renderer.hpp" />
     <ClInclude Include="rt_swap_chain.hpp" />
     <ClInclude Include="rt_device.hpp" />
     <ClInclude Include="rt_pipeline.hpp" />

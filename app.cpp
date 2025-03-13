@@ -1,40 +1,42 @@
 #include "app.hpp"
+#include "render_system.hpp"
 #include <stdexcept>
 #include <array>
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
 #include <glm/glm.hpp>
+#include <glm/gtc/constants.hpp>
 #include <iostream>
 
 
 namespace rt {
 
-	struct SimplePushConstantData
-	{
-		glm::mat2 transform{ 1.f };
-		glm::vec2 offset;
-		alignas(16) glm::vec3 color;
-	};
 
 
 	App::App()
 	{
 		loadObjects();
-		createPipelineLayout();
-		recreateSwapChain();
-		createCommadBuffers();
+
+
 	}
 
-	App::~App()
-	{
-		vkDestroyPipelineLayout(rtDevice.device(), pipelineLayout, nullptr);
-	}
+	App::~App(){}
 
 	void App::run(){
+		RenderSystem renderSystem{rtDevice, rtRenderer.getSwapChainRenderPass()};
+
 		while (!rtWindow.shouldClose())
 		{
 			glfwPollEvents();
-			drawFrame();
+			if (auto commandBuffer = rtRenderer.beginFrame())
+			{
+
+				//Muokkaa jatkossa valokipoisuus ja postprosessointi tänne
+				rtRenderer.beginSwapChainRenderPass(commandBuffer);
+				renderSystem.renderObjects(commandBuffer,objects);
+				rtRenderer.endSwapChainRenderPass(commandBuffer);
+				rtRenderer.endFrame();
+			}
 		}
 
 		vkDeviceWaitIdle(rtDevice.device());
@@ -55,200 +57,11 @@ namespace rt {
 		triangle.model = rtModel;
 		triangle.color = { 0.1f,0.1f,0.8f };
 		triangle.transform2d.translation.x = 0.2f;
+		triangle.transform2d.scale = { 2.f,0.5f };
+		triangle.transform2d.rotation = 0.25f * glm::two_pi<float>();
 
 		objects.push_back(std::move(triangle));
 
-	}
-
-	void App::createPipelineLayout()
-	{
-		VkPushConstantRange pushConstantRange{};
-		pushConstantRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
-		pushConstantRange.offset = 0;
-		pushConstantRange.size = sizeof(SimplePushConstantData);
-
-
-
-		VkPipelineLayoutCreateInfo pipelineLayoutInfo{};
-		pipelineLayoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
-		pipelineLayoutInfo.setLayoutCount = 0;
-		pipelineLayoutInfo.pSetLayouts = nullptr;
-		pipelineLayoutInfo.pushConstantRangeCount = 1;
-		pipelineLayoutInfo.pPushConstantRanges = &pushConstantRange;
-		if (vkCreatePipelineLayout(rtDevice.device(), &pipelineLayoutInfo, nullptr, &pipelineLayout) != VK_SUCCESS)
-		{
-			throw std::runtime_error("Failed To create pipeline layout!");
-		}
-
-	}
-
-	void App::createPipeline() 
-	{
-		assert(rtSwapChain != nullptr && "Cannot create pipeline before swapchain");
-		assert(pipelineLayout != nullptr && "Cannot create pipeline before pipelinelayout");
-
-		PipelineConfigInfo pipelineConfig{};
-
-		RtPipeline::defaultPipelineConfigInfo(pipelineConfig);
-
-		pipelineConfig.renderPass = rtSwapChain->getRenderPass();
-		pipelineConfig.pipelineLayout = pipelineLayout;
-		rtPipeline = std::make_unique<RtPipeline>(
-			rtDevice,
-			"simp_shader.vert.spv",
-			"simp_shader.frag.spv",
-			pipelineConfig);
-
-	}
-
-	void App::recreateSwapChain()
-	{
-		auto extent = rtWindow.getExtent();
-		while (extent.width == 0 || extent.height == 0)
-		{
-			extent = rtWindow.getExtent();
-			glfwWaitEvents();
-		}
-
-		vkDeviceWaitIdle(rtDevice.device());
-
-
-		if (rtSwapChain = nullptr)
-		{
-			rtSwapChain = std::make_unique<RtSwapChain>(rtDevice, extent);
-		}
-		else
-		{
-			rtSwapChain = std::make_unique<RtSwapChain>(rtDevice, extent, std::move(rtSwapChain));
-			if (rtSwapChain->imageCount() != commandBuffers.size())
-			{
-				freeCommandBuffers();
-				createCommadBuffers();
-			}
-
-		}
-
-		createPipeline();
-	}
-
-	void App::createCommadBuffers() 
-	{
-		commandBuffers.resize(rtSwapChain->imageCount());
-		VkCommandBufferAllocateInfo allocInfo{};
-		allocInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
-		allocInfo.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
-		allocInfo.commandPool = rtDevice.getCommandPool();
-		allocInfo.commandBufferCount = static_cast<uint32_t>(commandBuffers.size());
-
-		if (vkAllocateCommandBuffers(rtDevice.device(), &allocInfo, commandBuffers.data()) != VK_SUCCESS)
-		{
-			throw std::runtime_error("Failed to allocate command buffers!");
-		}
-
-	}
-	void App::freeCommandBuffers()
-	{
-		vkFreeCommandBuffers(rtDevice.device(), rtDevice.getCommandPool(), static_cast<uint32_t>(commandBuffers.size()), commandBuffers.data());
-		commandBuffers.clear();
-	}
-
-	void App::recordCommandBuffer(int imageIndex)
-	{
-		VkCommandBufferBeginInfo beginInfo{};
-		beginInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;
-
-		if (vkBeginCommandBuffer(commandBuffers[imageIndex], &beginInfo) != VK_SUCCESS)
-		{
-			throw std::runtime_error("Failed to begin recording command buffer!");
-		}
-
-		VkRenderPassBeginInfo renderPassInfo{};
-		renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
-		renderPassInfo.renderPass = rtSwapChain->getRenderPass();
-		renderPassInfo.framebuffer = rtSwapChain->getFrameBuffer(imageIndex);
-
-		renderPassInfo.renderArea.offset = { 0,0 };
-		renderPassInfo.renderArea.extent = rtSwapChain->getSwapChainExtent();
-
-		std::array<VkClearValue, 2> clearValues{};
-		clearValues[0].color = { 0.01f,0.01f,0.01f,1.0f };
-		clearValues[1].depthStencil = { 1.0f, 0 };
-
-		renderPassInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
-		renderPassInfo.pClearValues = clearValues.data();
-
-		vkCmdBeginRenderPass(commandBuffers[imageIndex], &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
-
-		VkViewport viewport{};
-		viewport.x = 0.0f;
-		viewport.y = 0.0f;
-		viewport.width = static_cast<float>(rtSwapChain->getSwapChainExtent().width);
-		viewport.height = static_cast<float>(rtSwapChain->getSwapChainExtent().height);
-		viewport.minDepth = 0.0f;
-		viewport.maxDepth = 1.0f;
-		VkRect2D scissor{ {0,0},rtSwapChain->getSwapChainExtent() };
-		vkCmdSetViewport(commandBuffers[imageIndex], 0, 1, &viewport);
-		vkCmdSetScissor(commandBuffers[imageIndex], 0, 1, &scissor);
-	
-		renderObjects(commandBuffers[imageIndex]);
-
-
-		
-
-
-		vkCmdEndRenderPass(commandBuffers[imageIndex]);
-		if (vkEndCommandBuffer(commandBuffers[imageIndex]) != VK_SUCCESS)
-		{
-			throw std::runtime_error("Failed to record command buffer!");
-		}
-	}
-
-	void App::renderObjects(VkCommandBuffer commandBuffer)
-	{
-		rtPipeline->bind(commandBuffer);
-		for (auto& obj : objects)
-		{
-			SimplePushConstantData push{};
-			push.offset = obj.transform2d.translation;
-			push.color = obj.color;
-			push.transform = obj.transform2d.mat2();
-			vkCmdPushConstants(commandBuffer, pipelineLayout, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT, 0, sizeof(SimplePushConstantData), &push);
-			obj.model->bind(commandBuffer);
-			obj.model->draw(commandBuffer);
-		}
-	}
-
-	void App::drawFrame() 
-	{
-		uint32_t imageIndex;
-		auto result = rtSwapChain->acquireNextImage(&imageIndex);
-
-		if (result == VK_ERROR_OUT_OF_DATE_KHR)
-		{
-			recreateSwapChain();
-			return;
-		}
-
-		if (result != VK_SUCCESS && result != VK_SUBOPTIMAL_KHR) 
-		{
-			throw std::runtime_error("Failed to acquire swapchain image");
-		}
-
-		recordCommandBuffer(imageIndex);
-
-		result = rtSwapChain->submitCommandBuffers(&commandBuffers[imageIndex], &imageIndex);
-
-		if (result == VK_ERROR_OUT_OF_DATE_KHR || result == VK_SUBOPTIMAL_KHR || rtWindow.wasWindowResized())
-		{
-			rtWindow.resetWindowResizedFlag();
-			recreateSwapChain();
-			return;
-		}
-
-		if (result != VK_SUCCESS)
-		{
-			throw std::runtime_error("Failed to present swapchain image!");
-		}
 	}
 
 

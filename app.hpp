@@ -1,10 +1,10 @@
 #pragma once
 
 #include "rt_window.hpp"
-#include "rt_pipeline.hpp"
+
 #include "rt_device.hpp"
 #include "game_object.hpp"
-#include "rt_swap_chain.hpp"
+#include "rt_renderer.hpp"
 
 
 #include <memory>
@@ -26,22 +26,18 @@ namespace rt {
 
 	private:
 		void loadObjects();
-		void createPipelineLayout();
-		void createPipeline();
-		void createCommadBuffers();
-		void freeCommandBuffers();
-		void drawFrame();
-		void recreateSwapChain();
-		void recordCommandBuffer(int imageIndex);
-		void renderObjects(VkCommandBuffer commandBuffer);
+
+
+
+
+
+
+
 
 		RtWindow rtWindow{ WIDTH,HEIGHT,"Hello ray trace!" };
 		RtDevice rtDevice{rtWindow};
-		std::unique_ptr<RtSwapChain> rtSwapChain;
+		RtRenderer rtRenderer{rtWindow, rtDevice};
 
-		std::unique_ptr<RtPipeline> rtPipeline;
-		VkPipelineLayout pipelineLayout;
-		std::vector<VkCommandBuffer> commandBuffers;
 		std::vector<RtObject> objects;
 
 	};
