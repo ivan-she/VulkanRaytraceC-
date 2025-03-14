@@ -32,8 +32,7 @@ namespace rt {
 
 		vkDeviceWaitIdle(rtDevice.device());
 
-
-		if (rtSwapChain = nullptr)
+		if (rtSwapChain == nullptr)
 		{
 			rtSwapChain = std::make_unique<RtSwapChain>(rtDevice, extent);
 		}
@@ -46,8 +45,6 @@ namespace rt {
 			{
 				throw std::runtime_error("Swap chain image or deph format has changed!");
 			}
-
-
 
 		}
 
