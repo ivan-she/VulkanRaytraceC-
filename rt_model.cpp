@@ -51,6 +51,6 @@ namespace rt {
 	}
 
 	std::vector<VkVertexInputAttributeDescription> RtModel::Vertex::getAttrivuteDescriptions() {
-		return { {0,0,VK_FORMAT_R32G32_SFLOAT,offsetof(Vertex,position)},{1,0,VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex,color)}};
+		return { {0,0,VK_FORMAT_R32G32B32_SFLOAT,offsetof(Vertex,position)},{1,0,VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex,color)}};
 	}
 }
