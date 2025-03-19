@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include "rt_camera.hpp"
 #include "rt_pipeline.hpp"
 #include "rt_device.hpp"
 #include "game_object.hpp"
@@ -22,7 +22,7 @@ namespace rt {
 		RenderSystem& operator=(const RenderSystem&) = delete;
 
 
-		void renderObjects(VkCommandBuffer commandBuffer, std::vector<RtObject> &objects);
+		void renderObjects(VkCommandBuffer commandBuffer, std::vector<RtObject> &objects, const RtCamera &camera);
 
 	private:
 		void createPipelineLayout();

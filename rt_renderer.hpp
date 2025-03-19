@@ -20,6 +20,8 @@ namespace rt {
 		RtRenderer& operator=(const RtRenderer &) = delete;
 
 		VkRenderPass getSwapChainRenderPass() const { return rtSwapChain->getRenderPass(); }
+		float getAspectRation() const { return rtSwapChain->extentAspectRatio(); }
+
 		bool isFrameInProgress() const { return isFrameStarted; }
 
 		VkCommandBuffer getCurrentCommandBuffer() const
