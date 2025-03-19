@@ -48,6 +48,9 @@
     <ClCompile Include="rt_camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="keybord_movement_control.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="triangle.vert">
@@ -102,6 +105,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="rt_camera.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="keybord_movement_control.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

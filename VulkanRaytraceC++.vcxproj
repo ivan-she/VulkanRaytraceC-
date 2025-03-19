@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="app.cpp" />
+    <ClCompile Include="keybord_movement_control.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="render_system.cpp" />
     <ClCompile Include="rt_camera.cpp" />
@@ -159,6 +160,7 @@
   <ItemGroup>
     <ClInclude Include="app.hpp" />
     <ClInclude Include="game_object.hpp" />
+    <ClInclude Include="keybord_movement_control.hpp" />
     <ClInclude Include="render_system.hpp" />
     <ClInclude Include="rt_camera.hpp" />
     <ClInclude Include="rt_model.hpp" />
