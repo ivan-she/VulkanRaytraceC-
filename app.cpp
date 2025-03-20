@@ -1,4 +1,6 @@
 #include "app.hpp"
+
+#include "keybord_movement_control.hpp"
 #include "rt_camera.hpp"
 #include "render_system.hpp"
 #include <stdexcept>
@@ -24,11 +26,15 @@ namespace rt {
 
 	App::~App(){}
 
-	void App::run(){
-		RenderSystem renderSystem{rtDevice, rtRenderer.getSwapChainRenderPass()};
+    void App::run() {
+        RenderSystem renderSystem{ rtDevice, rtRenderer.getSwapChainRenderPass() };
         RtCamera camera{};
         //camera.setViewDirection(glm::vec3(0.f), glm::vec3(0.5f, 0.f, 1.f));
         camera.setViewTarget(glm::vec3(-1.f, -2.f, 2.f), glm::vec3(0.f, 0.f, 2.5f));
+
+        auto viewObject = RtObject::createObject();
+        KeyboardMovementController cameraController{};
+
         auto currentTime = std::chrono::high_resolution_clock::now();
 
 		while (!rtWindow.shouldClose())
@@ -38,6 +44,12 @@ namespace rt {
             auto newTime = std::chrono::high_resolution_clock::now();
             float frameTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
             currentTime = newTime;
+
+            //frameTime = glm::min(frameTime,"predifined value here")
+
+            cameraController.moveInPlaneXZ(rtWindow.getGLFWwindow(), frameTime, viewObject);
+
+            camera.setViewYXZ(viewObject.transform.translation, viewObject.transform.rotation);
 
             float aspect = rtRenderer.getAspectRation();
             //camera.setOrthographicProjection(-aspect, aspect, -1, 1, -1, 1);
