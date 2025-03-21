@@ -170,12 +170,6 @@
     <ClInclude Include="rt_pipeline.hpp" />
     <ClInclude Include="rt_window.hpp" />
   </ItemGroup>
-  <ItemGroup>
-    <Object Include="T:\Downloads\models-20250321T125515Z-001\models\colored_cube.obj" />
-    <Object Include="T:\Downloads\models-20250321T125515Z-001\models\cube.obj" />
-    <Object Include="T:\Downloads\models-20250321T125515Z-001\models\flat_vase.obj" />
-    <Object Include="T:\Downloads\models-20250321T125515Z-001\models\smooth_vase.obj" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
