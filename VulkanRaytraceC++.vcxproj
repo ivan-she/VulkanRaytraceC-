@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\include;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\Vulkan\Include;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\include;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\Vulkan\Include;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLM;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\TinyOBJLoader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -122,7 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\include;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\Vulkan\Include;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLFW\include;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\Vulkan\Include;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\GLM;G:\Projects\School\VulkanRaytraceC++\ExternalLibraries\SourceLibraries\TinyOBJLoader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -169,6 +169,12 @@
     <ClInclude Include="rt_device.hpp" />
     <ClInclude Include="rt_pipeline.hpp" />
     <ClInclude Include="rt_window.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="T:\Downloads\models-20250321T125515Z-001\models\colored_cube.obj" />
+    <Object Include="T:\Downloads\models-20250321T125515Z-001\models\cube.obj" />
+    <Object Include="T:\Downloads\models-20250321T125515Z-001\models\flat_vase.obj" />
+    <Object Include="T:\Downloads\models-20250321T125515Z-001\models\smooth_vase.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

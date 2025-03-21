@@ -16,6 +16,9 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{f313a5e9-17ee-44b2-8945-0bfeb99329cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{8f56fc9b-3a4b-4ab7-b1b5-aea3c874c02f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -110,5 +113,19 @@
     <ClInclude Include="keybord_movement_control.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="T:\Downloads\models-20250321T125515Z-001\models\colored_cube.obj">
+      <Filter>Models</Filter>
+    </Object>
+    <Object Include="T:\Downloads\models-20250321T125515Z-001\models\cube.obj">
+      <Filter>Models</Filter>
+    </Object>
+    <Object Include="T:\Downloads\models-20250321T125515Z-001\models\flat_vase.obj">
+      <Filter>Models</Filter>
+    </Object>
+    <Object Include="T:\Downloads\models-20250321T125515Z-001\models\smooth_vase.obj">
+      <Filter>Models</Filter>
+    </Object>
   </ItemGroup>
 </Project>
