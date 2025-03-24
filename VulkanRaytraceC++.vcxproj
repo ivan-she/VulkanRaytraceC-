@@ -139,8 +139,10 @@
     <ClCompile Include="keybord_movement_control.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="render_system.cpp" />
+    <ClCompile Include="rt_buffer.cpp" />
     <ClCompile Include="rt_camera.cpp" />
     <ClCompile Include="game_object.cpp" />
+    <ClCompile Include="rt_frame_info.cpp" />
     <ClCompile Include="rt_model.cpp" />
     <ClCompile Include="rt_renderer.cpp" />
     <ClCompile Include="rt_swap_chain.cpp" />
@@ -163,7 +165,9 @@
     <ClInclude Include="game_object.hpp" />
     <ClInclude Include="keybord_movement_control.hpp" />
     <ClInclude Include="render_system.hpp" />
+    <ClInclude Include="rt_buffer.hpp" />
     <ClInclude Include="rt_camera.hpp" />
+    <ClInclude Include="rt_frame_info.hpp" />
     <ClInclude Include="rt_model.hpp" />
     <ClInclude Include="rt_renderer.hpp" />
     <ClInclude Include="rt_swap_chain.hpp" />

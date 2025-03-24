@@ -4,6 +4,7 @@
 #include "rt_pipeline.hpp"
 #include "rt_device.hpp"
 #include "game_object.hpp"
+#include "rt_frame_info.hpp"
 
 
 
@@ -22,16 +23,11 @@ namespace rt {
 		RenderSystem& operator=(const RenderSystem&) = delete;
 
 
-		void renderObjects(VkCommandBuffer commandBuffer, std::vector<RtObject> &objects, const RtCamera &camera);
+		void renderObjects(FrameInfo &frameInfo, std::vector<RtObject> &objects);
 
 	private:
 		void createPipelineLayout();
 		void createPipeline(VkRenderPass renderPass);
-
-
-
-
-
 
 		RtDevice &rtDevice;
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "rt_device.hpp"
+#include "rt_buffer.hpp"
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
@@ -55,14 +56,11 @@ namespace rt{
 
 		RtDevice& rtDevice;
 
-
-		VkBuffer vertexBuffer;
-		VkDeviceMemory vertexBufferMemory;
+		std::unique_ptr<RtBuffer> vertexBuffer;
 		uint32_t vertexCount;
 
 		bool hasIndexBuffer = false;
-		VkBuffer indexBuffer;
-		VkDeviceMemory indexBufferMemory;
+		std::unique_ptr<RtBuffer> indexBuffer;
 		uint32_t indexCount;
 	};
 }

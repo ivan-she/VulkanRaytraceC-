@@ -3,6 +3,7 @@
 #include "keybord_movement_control.hpp"
 #include "rt_camera.hpp"
 #include "render_system.hpp"
+#include "rt_buffer.hpp"
 #include <stdexcept>
 #include <array>
 #include <chrono>
@@ -14,7 +15,11 @@
 
 
 namespace rt {
-
+    struct GlobalUbo
+    {
+        glm::mat4 projectionView{ 1.f };
+        glm::vec3 lightDirection = glm::normalize(glm::vec3{ 1.f,-3.f,-1.f });
+    };
 
 
 	App::App()
@@ -27,6 +32,20 @@ namespace rt {
 	App::~App(){}
 
     void App::run() {
+
+
+        std::vector<std::unique_ptr<RtBuffer>> uboBuffers(RtSwapChain::MAX_FRAMES_IN_FLIGHT);
+        for (int i = 0; i < uboBuffers.size(); i++)
+        {
+            uboBuffers[i] = std::make_unique<RtBuffer>(
+                rtDevice,
+                sizeof(GlobalUbo),
+                1,
+                VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
+                VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT);/* | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT)*/
+            uboBuffers[i]->map();
+        }
+
         RenderSystem renderSystem{ rtDevice, rtRenderer.getSwapChainRenderPass() };
         RtCamera camera{};
         //camera.setViewDirection(glm::vec3(0.f), glm::vec3(0.5f, 0.f, 1.f));
@@ -56,10 +75,23 @@ namespace rt {
             camera.setPerspectiveProjection(glm::radians(50.f),aspect,0.1f,10.f);
 			if (auto commandBuffer = rtRenderer.beginFrame())
 			{
+                int frameIndex = rtRenderer.getFrameIndex();
+                FrameInfo frameInfo{
+                    frameIndex,
+                    frameTime,
+                    commandBuffer,
+                    camera
+                };
+                //update
+                GlobalUbo ubo{};
+                ubo.projectionView = camera.getProjection() * camera.getView();
+                uboBuffers[frameIndex]->writeToBuffer(&ubo);
+                uboBuffers[frameIndex]->flush();
 
+                //render
 				//Muokkaa jatkossa valokipoisuus ja postprosessointi tänne
 				rtRenderer.beginSwapChainRenderPass(commandBuffer);
-				renderSystem.renderObjects(commandBuffer,objects,camera);
+				renderSystem.renderObjects(frameInfo,objects);
 				rtRenderer.endSwapChainRenderPass(commandBuffer);
 				rtRenderer.endFrame();
 			}

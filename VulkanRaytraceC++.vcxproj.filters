@@ -54,6 +54,12 @@
     <ClCompile Include="game_object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="rt_buffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rt_frame_info.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="triangle.vert">
@@ -114,6 +120,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="rt_utils.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rt_buffer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rt_frame_info.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
