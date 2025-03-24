@@ -72,13 +72,13 @@ namespace rt {
 
 	void App::loadObjects()
 	{
-        std::shared_ptr<RtModel> rtModel = RtModel::creatModelFromFile(rtDevice, "Models/colored_cube.obj");
+        std::shared_ptr<RtModel> rtModel = RtModel::creatModelFromFile(rtDevice, "Models/flat_vase.obj");
 
-        auto cube = RtObject::createObject();
-        cube.model = rtModel;
-        cube.transform.translation = { .0f,.0f,2.5f };
-        cube.transform.scale = { .5f, .5f, .5f };
-        objects.push_back(std::move(cube));
+        auto obj = RtObject::createObject();
+        obj.model = rtModel;
+        obj.transform.translation = { .0f,.5f,2.5f };
+        obj.transform.scale = glm::vec3{ 3.f };
+        objects.push_back(std::move(obj));
 
 	}
 

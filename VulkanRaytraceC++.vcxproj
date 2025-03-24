@@ -140,6 +140,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="render_system.cpp" />
     <ClCompile Include="rt_camera.cpp" />
+    <ClCompile Include="game_object.cpp" />
     <ClCompile Include="rt_model.cpp" />
     <ClCompile Include="rt_renderer.cpp" />
     <ClCompile Include="rt_swap_chain.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="rt_swap_chain.hpp" />
     <ClInclude Include="rt_device.hpp" />
     <ClInclude Include="rt_pipeline.hpp" />
+    <ClInclude Include="rt_utils.hpp" />
     <ClInclude Include="rt_window.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
