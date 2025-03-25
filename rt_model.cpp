@@ -60,7 +60,7 @@ namespace rt {
 		};
 
 		stagingBuffer.map();
-		stagingBuffer.writeToBuffer((void*)vertices.data());
+		stagingBuffer.writeToBuffer((void *)vertices.data());
 
 		vertexBuffer = std::make_unique<RtBuffer>(
 			rtDevice,
@@ -95,11 +95,13 @@ namespace rt {
 		};
 
 		stagingBuffer.map();
-		stagingBuffer.writeToBuffer((void*)indecis.data());
+		stagingBuffer.writeToBuffer((void *)indecis.data());
 
 		indexBuffer = std::make_unique<RtBuffer>
 			(
+
 				rtDevice,
+				indexSize,
 				indexCount,
 				VK_BUFFER_USAGE_INDEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
 				VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT
