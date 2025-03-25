@@ -11,6 +11,7 @@ namespace rt
 		float frameTime;
 		VkCommandBuffer commandBuffer;
 		RtCamera &camera;
+		VkDescriptorSet globalDescriptorSet;
 
 
 	};

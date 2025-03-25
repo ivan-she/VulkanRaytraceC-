@@ -5,6 +5,7 @@
 #include "rt_device.hpp"
 #include "game_object.hpp"
 #include "rt_renderer.hpp"
+#include "rt_descriptors.hpp"
 
 
 #include <memory>
@@ -38,6 +39,8 @@ namespace rt {
 		RtDevice rtDevice{rtWindow};
 		RtRenderer rtRenderer{rtWindow, rtDevice};
 
+		//deklaraation jerjestyksellä on väliä!
+		std::unique_ptr<RtDescriptorPool> globalPool{};
 		std::vector<RtObject> objects;
 
 	};

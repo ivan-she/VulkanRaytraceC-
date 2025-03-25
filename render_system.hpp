@@ -16,7 +16,7 @@ namespace rt {
 	public:
 
 
-		RenderSystem(RtDevice &device, VkRenderPass renderPass);
+		RenderSystem(RtDevice &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout);
 		~RenderSystem();
 
 		RenderSystem(const RenderSystem&) = delete;
@@ -26,7 +26,7 @@ namespace rt {
 		void renderObjects(FrameInfo &frameInfo, std::vector<RtObject> &objects);
 
 	private:
-		void createPipelineLayout();
+		void createPipelineLayout(VkDescriptorSetLayout globalSetLayout);
 		void createPipeline(VkRenderPass renderPass);
 
 		RtDevice &rtDevice;
