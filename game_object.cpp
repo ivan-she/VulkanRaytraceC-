@@ -1,5 +1,8 @@
 #include "game_object.hpp"
 
+// Matikka https://en.wikipedia.org/wiki/Transformation_matrix ja https://en.wikipedia.org/wiki/Euler_angles#Rotation_matrix
+//Käytössä tait-bryarin kulmat järjestyksessä Y,X,Z
+
 namespace rt
 {
 	glm::mat4 TransformComponent::mat4()
