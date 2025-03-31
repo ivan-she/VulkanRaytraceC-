@@ -115,12 +115,13 @@ namespace rt {
 
 	void App::loadObjects()
 	{
-        std::shared_ptr<RtModel> rtModel = RtModel::creatModelFromFile(rtDevice, "Models/flat_vase.obj");
+        std::shared_ptr<RtModel> rtModel = RtModel::creatModelFromFile(rtDevice, "Models/LampPole.obj");
 
         auto obj = RtObject::createObject();
         obj.model = rtModel;
         obj.transform.translation = { .0f,.5f,2.5f };
-        obj.transform.scale = glm::vec3{ 3.f };
+        obj.transform.rotation = { .0f,.0f,3.15f };
+        obj.transform.scale = glm::vec3{ 1.f };
         objects.push_back(std::move(obj));
 
 	}

@@ -6,7 +6,7 @@
 
 namespace rt {
 
-    // *************** Descriptor Set Layout Builder *********************
+    // layout rakentaja
 
     RtDescriptorSetLayout::Builder& RtDescriptorSetLayout::Builder::addBinding(
         uint32_t binding,
@@ -27,7 +27,7 @@ namespace rt {
         return std::make_unique<RtDescriptorSetLayout>(rtDevice, bindings);
     }
 
-    // *************** Descriptor Set Layout *********************
+    // asetettu layout
 
     RtDescriptorSetLayout::RtDescriptorSetLayout(
         RtDevice& lveDevice, std::unordered_map<uint32_t, VkDescriptorSetLayoutBinding> bindings)
@@ -55,7 +55,7 @@ namespace rt {
         vkDestroyDescriptorSetLayout(rtDevice.device(), descriptorSetLayout, nullptr);
     }
 
-    // *************** Descriptor Pool Builder *********************
+    // Pool rakentaja
 
     RtDescriptorPool::Builder& RtDescriptorPool::Builder::addPoolSize(
         VkDescriptorType descriptorType, uint32_t count) {
@@ -77,7 +77,7 @@ namespace rt {
         return std::make_unique<RtDescriptorPool>(rtDevice, maxSets, poolFlags, poolSizes);
     }
 
-    // *************** Descriptor Pool *********************
+    // itse pool
 
     RtDescriptorPool::RtDescriptorPool(
         RtDevice& rtDevice,
@@ -110,8 +110,8 @@ namespace rt {
         allocInfo.pSetLayouts = &descriptorSetLayout;
         allocInfo.descriptorSetCount = 1;
 
-        // Might want to create a "DescriptorPoolManager" class that handles this case, and builds
-        // a new pool whenever an old pool fills up. But this is beyond our current scope
+        // Vois tehdä oman kuvaajan Descriptor
+        // Tekee uuden poolin kun vanha on täyttynyt
         if (vkAllocateDescriptorSets(rtDevice.device(), &allocInfo, &descriptor) != VK_SUCCESS) {
             return false;
         }
@@ -130,7 +130,7 @@ namespace rt {
         vkResetDescriptorPool(rtDevice.device(), descriptorPool, 0);
     }
 
-    // *************** Descriptor Writer *********************
+    // Descriptor kirjoittaja
 
     RtDescriptorWriter::RtDescriptorWriter(RtDescriptorSetLayout& setLayout, RtDescriptorPool& pool)
         : setLayout{ setLayout }, pool{ pool } {
