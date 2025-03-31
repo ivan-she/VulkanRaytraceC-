@@ -1,6 +1,5 @@
 #include "rt_device.hpp"
 
-// std headers
 #include <cstring>
 #include <iostream>
 #include <set>
@@ -162,8 +161,7 @@ void RtDevice::createLogicalDevice() {
   createInfo.enabledExtensionCount = static_cast<uint32_t>(deviceExtensions.size());
   createInfo.ppEnabledExtensionNames = deviceExtensions.data();
 
-  // might not really be necessary anymore because device specific validation layers
-  // have been deprecated
+
   if (enableValidationLayers) {
     createInfo.enabledLayerCount = static_cast<uint32_t>(validationLayers.size());
     createInfo.ppEnabledLayerNames = validationLayers.data();
@@ -223,7 +221,7 @@ void RtDevice::populateDebugMessengerCreateInfo(
                            VK_DEBUG_UTILS_MESSAGE_TYPE_VALIDATION_BIT_EXT |
                            VK_DEBUG_UTILS_MESSAGE_TYPE_PERFORMANCE_BIT_EXT;
   createInfo.pfnUserCallback = debugCallback;
-  createInfo.pUserData = nullptr;  // Optional
+  createInfo.pUserData = nullptr;  // Vaihtoehtonen
 }
 
 void RtDevice::setupDebugMessenger() {
@@ -470,8 +468,8 @@ void RtDevice::copyBuffer(VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSize s
   VkCommandBuffer commandBuffer = beginSingleTimeCommands();
 
   VkBufferCopy copyRegion{};
-  copyRegion.srcOffset = 0;  // Optional
-  copyRegion.dstOffset = 0;  // Optional
+  copyRegion.srcOffset = 0;  // Vaihtoehtonen
+  copyRegion.dstOffset = 0;  // Vaihtoehtonen
   copyRegion.size = size;
   vkCmdCopyBuffer(commandBuffer, srcBuffer, dstBuffer, 1, &copyRegion);
 
@@ -531,4 +529,4 @@ void RtDevice::createImageWithInfo(
   }
 }
 
-}  // namespace rt
+}  
